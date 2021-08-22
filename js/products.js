@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(response){
 
         if(response.status === 'ok'){
-            console.log(response.data);
+            
             for (i=0; i < response.data.length; i++){
                 document.getElementById('container').innerHTML += `
                 <a href="product-info.html" class="list-group-item list-group-item-action">
