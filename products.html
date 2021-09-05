@@ -8,6 +8,7 @@
     <title>eMercado - Todo lo que busques está aquí</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,18 +22,64 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block text-light" id="userName">Bienvenido/a </a>
       </div>
     </nav>
-    <div class="container p-5">
+    <main class="pb-5">
       <div class="text-center p-4">
         <h2>Productos</h2>
         <p class="lead">Verás aquí todos los productos del sitio.</p>
     </div>
+    <div class="container">
+    <div class="row">
+      <div class="col text-right">
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+              <label class="btn btn-light active" id="priceAsc" >
+                  <input type="radio" name="options" autocomplete="off" checked><i class="bi bi-sort-down-alt mr-1"></i>Precio
+              </label>
+              <label class="btn btn-light" id="priceDesc" >
+                  <input type="radio" name="options" autocomplete="off"><i class="bi bi-sort-up-alt mr-1"></i>Precio
+              </label>
+              <label class="btn btn-light" id="sortBySold" >
+                  <input type="radio" name="options" autocomplete="off"><i class="bi bi-sort-down mr-1"></i>Más relevante
+              </label>
+          </div>
+          <div>
+            <label>Buscar
+              <input type="search" id="search">
+            </label>
+          </div>
+      </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-md-6"></div>
+      <div class="col-md-6 col-sm-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-right my-2">Precio</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
     <div class="row">
       <div class="list-group" id="container">
       </div>
-  </div>
     </div>
+  </div>
+
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
@@ -41,6 +88,9 @@
         <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
+
+    </main>
+
     </footer>
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>

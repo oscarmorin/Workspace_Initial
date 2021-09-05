@@ -45,6 +45,15 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-         
+  //Mostrar usuario en HTML
+document.getElementById('userName').innerHTML += localStorage.getItem('user');   
+     
 
 });
+
+
+
+
+
+
+

@@ -23,3 +23,23 @@ function validarFormulario(evento){
             this.submit();
         }
 }
+
+// guardo el user en localStorage
+function getUser (){
+
+    document.getElementById('btn').addEventListener("click", function(){
+  
+      var user = document.getElementById('user').value;
+  
+      if (user != undefined && user != ""){
+  
+          localStorage.setItem('user', user);
+          
+      }
+      
+  });
+  
+  }
+  //llamo a la funcion
+  getUser (); 
+
