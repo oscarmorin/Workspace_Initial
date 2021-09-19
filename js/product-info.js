@@ -113,7 +113,6 @@ add.addEventListener("click",function (e){
                 document.getElementById("comments").innerHTML += htmlContentToAppend;
 
                 document.getElementById('form').reset();
-                showComments();
             }
             
 })
