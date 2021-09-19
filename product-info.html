@@ -10,6 +10,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -27,12 +28,60 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Descripción del producto</h2>
+      <p class="lead">Encontrarás aquí toda la información de las productos seleccionados.</p>
+      <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquier producto
+        seleccionado previamente, siempre se visualizará el mismo.</p>
     </div>
+    <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Precio</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Cantidad de productos vendidos</dt>
+        <dd>
+          <p id="soldCount"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <div id="comments" class="">
+
+        <h3>Comentarios</h3>
+
+      </div>
+      <div class="border border-secondary rounded p-2 mt-5">
+        <form id="form" class="p-5">
+          <div class="mb-3">
+          <textarea class="form-control" placeholder="Deja un comentario aqui" id="comment" required></textarea>
+        </div>
+          <div class="mb-3">
+          <select id="score" class="form-select form-select-lg" required>
+            <option value="0">Puntuación</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <button class="btn btn-primary " id="add">Añadir Comentario</button>
+        </form>
+        
+      </div>
   </div>
   <footer class="text-muted">
     <div class="container">

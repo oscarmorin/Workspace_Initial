@@ -7,7 +7,7 @@ var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
 const text = document.getElementById('search');
-
+const container = document.getElementById("container");
 
 //Funcion que ordena los productos segun criterio
 function sortPrice(criteria, array){
@@ -33,7 +33,6 @@ function sortPrice(criteria, array){
             return 0;
         });
     }
-
     return result;
 }
 
@@ -47,9 +46,7 @@ function showProductsList (){
                 let products = currentProductsArray[i];
 
                 //creo condicion para filtrar por precio
-                if (((minPrice == undefined) || (minPrice != undefined && products.cost >= minPrice)) && ((maxPrice == undefined) || (maxPrice != undefined && products.cost <= maxPrice))){
-
-                
+                if (((minPrice == undefined) || (minPrice != undefined && products.cost >= minPrice)) && ((maxPrice == undefined) || (maxPrice != undefined && products.cost <= maxPrice))){               
 
                 //creo html con los datos obtenidos del array
                 htmlContentToAppend += `
@@ -72,10 +69,8 @@ function showProductsList (){
             }
 
             //agrego lista al html
-            document.getElementById("container").innerHTML = htmlContentToAppend;
+            container.innerHTML = htmlContentToAppend;
         }
-
-        
 }
 
 //Funcion que ordena la lista de productos por criterio
@@ -160,12 +155,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function search(){
     
-    //obtengo el id donde quiero manipular los objetos
-    var resultado = document.getElementById('container');
     //Convierto todo lo que se escribe el buscador a minuscula
     const texto = text.value.toLowerCase();
     //Cada vez que ejecuto la funcion hace un reset de lo que hay en el html
-    resultado.innerHTML = '';   
+    container.innerHTML = '';   
 
     for (let product of currentProductsArray ){
         //convierto los nombres de los productos que hay en el array para comparar y encontrar coincidencias
@@ -174,7 +167,7 @@ function search(){
         //recorro el array para encontrar coincidencias entre lo que se busca y los productos
         if (name.indexOf(texto) !== -1){
             
-            resultado.innerHTML += `
+            container.innerHTML += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                     <div class="row">
                         <div class="col-3">
@@ -196,8 +189,8 @@ function search(){
          
     }
     //Si no hay coincidencias despues de recorrer el array muestro sin resultados
-    if (resultado.innerHTML === ''){
-        resultado.innerHTML = `<h4 class="mb-1">no hay resultados...</h4>`
+    if (container.innerHTML === ''){
+        container.innerHTML = `<h4 class="mb-1">no hay resultados...</h4>`
     }
     
 }
