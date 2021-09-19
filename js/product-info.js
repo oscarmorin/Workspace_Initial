@@ -113,28 +113,24 @@ add.addEventListener("click",function (e){
                 document.getElementById("comments").innerHTML += htmlContentToAppend;
 
                 document.getElementById('form').reset();
+                showComments();
             }
+            
 })
 
 //Funcion obtener fecha
 function getFullDate() {
 
       dateTime = "";
-      var hora = new Date()
-      var hrs = hora.getHours();
-      var min = hora.getMinutes();
-      var sec = hora.getSeconds();
-      var hoy = new Date();
-      var m = new Array();
-      var d = new Array();
-      var an= hoy.getFullYear();
-      
-      m[0]="01";  m[1]="02";  m[2]="03";
-      m[3]="04";   m[4]="05";  m[5]="06";
-      m[6]="07";    m[7]="08";   m[8]="09";
-      m[9]="10";   m[10]="11"; m[11]="12";
+      var date = new Date()
+      var hrs = date.getHours();
+      var min = date.getMinutes();
+      var sec = date.getSeconds();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDate();
         
-     dateTime = an + "-" + (m[hoy.getMonth()]) + "-" + (hoy.getDate()) + " " + hrs + ":" + min + ":" + sec;
+     dateTime = year + "-" + month + "-" + day + " " + hrs + ":" + min + ":" + sec;
     
     }
     
