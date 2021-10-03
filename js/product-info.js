@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let soldCount   = document.getElementById('soldCount');
             let relatedProducts = product.relatedProducts;
 
+            //Obtengo info de  URL products
             getJSONData(PRODUCTS_URL).then(function(res){
                 if (res.status === 'ok'){
                     let products = res.data;
