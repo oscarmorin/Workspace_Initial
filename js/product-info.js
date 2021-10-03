@@ -12,11 +12,39 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(response){
         if(response.status === 'ok'){
 
-            product = response.data;
+            let product = response.data;
             let name        = document.getElementById('productName');
             let description = document.getElementById('productDescription');
             let price       = document.getElementById('productCost');
             let soldCount   = document.getElementById('soldCount');
+            let relatedProducts = product.relatedProducts;
+
+            getJSONData(PRODUCTS_URL).then(function(res){
+                if (res.status === 'ok'){
+                    let products = res.data;
+                    for (let i = 0; i < res.data.length; i++){
+                        for (let valor of relatedProducts){                           
+                            if (i ===  valor ){
+                                document.getElementById('pRelated').innerHTML +=
+                                `
+                                
+                                    <div class="card col col-lg-4 " style="width: 18rem;">
+                                        <img src="${products[i].imgSrc}" class="card-img-top" alt="${products[i].description}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${products[i].name}</h5>
+                                            <p class="card-text">${products[i].description}</p>
+                                            <a href="#" class="btn btn-primary">Ver más</a>
+                                        </div>
+                                    </div>
+                                
+
+                            `;
+                            }
+                        }
+                    }
+
+                }
+            });
 
             name.innerHTML = product.name;
             description.innerHTML = product.description
@@ -40,20 +68,29 @@ document.addEventListener("DOMContentLoaded", function(e){
 function showImagesGallery (array){
 
     let htmlContentToAppend = "";
+    let indicators = "";
 
     for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+        if(i === 0){
+            htmlContentToAppend += `
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="${array[i]}" alt="Second slide">
             </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+            `
+            indicators += `<li data-target="#carouselExampleIndicators" data-slide-to="${i}" class="active"></li>`
+        } else {
+            htmlContentToAppend += `
+            <div class="carousel-item">
+                <img class="d-block w-100" src="${array[i]}" alt="Second slide">
+            </div>
+            ` 
+            indicators += `<li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>`
+        }
     }
+
+    document.getElementById("productImagesGallery").innerHTML += htmlContentToAppend;
+    document.getElementById("indicators").innerHTML += indicators;
+    
 }
 
 //Funcion mostrar comentarios 

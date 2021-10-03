@@ -23,8 +23,16 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block text-light" id="userName">Bienvenido/a </a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bienvenido/a
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a id="cerrar" class="dropdown-item" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <div class="container p-5">
@@ -53,18 +61,46 @@
         </dd>
 
         <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
+          <dd>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol id="indicators" class="carousel-indicators">
+
+              </ol>
+              <div id="productImagesGallery" class="carousel-inner">
+
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
         </dd>
       </dl>
+
+      <div class="container">
+        <h3>Productos relacionados</h3>
+        <hr class="my-3">
+        <div id="pRelated" class="row justify-content-around">
+
+        </div>
+      </div>
       <div id="comments" class="">
 
-        <h3>Comentarios</h3>
+        <h3 class="mt-3">Comentarios</h3>
+        <hr class="my-3">
 
       </div>
-      <div class="border border-secondary rounded p-2 mt-5">
-        <form id="form" class="p-5">
+
+      <h3 class="mt-4">Nuevo comentario</h3>
+      <hr class="my-3">
+
+      <div class="border border-secondary rounded p-2 mt-4">
+        
+        <form id="form" class="p-3">
           <div class="mb-3">
           <textarea class="form-control" placeholder="Deja un comentario aqui" id="comment" required></textarea>
         </div>
