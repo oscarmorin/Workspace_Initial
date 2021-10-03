@@ -35,6 +35,8 @@ function getUser (){
   
           localStorage.setItem('user', user);
           
+      } else {
+        window.location.href = "index.html"
       }
       
   });
