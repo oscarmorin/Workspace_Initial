@@ -47,14 +47,31 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
 
     //Mostrar usuario en HTML
-document.getElementById('dropdownMenuButton').innerHTML += localStorage.getItem('user'); 
+    showUser();
 
-cerrar.addEventListener('click', deleteUser);
+    //Borrar user
+    cerrar.addEventListener('click', deleteUser);
 
 });
 
 function deleteUser(){
+
+  //Borro el usuario en local storage
   document.getElementById('dropdownMenuButton').innerHTML += localStorage.removeItem('user');
+  
+}
+
+function showUser(){
+
+  let user =localStorage.getItem("user");
+
+  if (user != undefined && user != ""){
+  
+        document.getElementById('dropdownMenuButton').innerHTML += localStorage.getItem('user'); 
+    
+      } else {
+  window.location.href = "index.html"
+      } 
 }
 
 
