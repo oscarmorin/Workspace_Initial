@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById('form').addEventListener('submit', validarFormulario);
 
+     //llamo a la funcion obtener usuario
+     getUser (); 
+
 });
 
 //funcion para validar los campos mediante javascript
@@ -42,6 +45,5 @@ function getUser (){
   });
   
   }
-  //llamo a la funcion
-  getUser (); 
+ 
 
