@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                                 document.getElementById('pRelated').innerHTML +=
                                 `
                                 
-                                    <div class="card col col-lg-4 " style="width: 18rem;">
+                                    <div class="card col col-lg-4 p-2">
                                         <img src="${products[i].imgSrc}" class="card-img-top" alt="${products[i].description}">
                                         <div class="card-body">
                                             <h5 class="card-title">${products[i].name}</h5>
