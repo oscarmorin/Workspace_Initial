@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function setData(){
 
+    //Creo el objeto
     let perfil = {
         "nombre" : nombre.value,
         "edad" : edad.value,
@@ -25,14 +26,18 @@ function setData(){
         "email" : email.value
     }
 
+    //Guardo en local storage objeto en forma de string
     localStorage.setItem("perfil", JSON.stringify(perfil));
     
 }
 
+//Funcion mostrar data en HTML
 function getData(){
 
+    //Obtengo data y convierto a JSON
     let datosPerfil = JSON.parse(localStorage.getItem("perfil"));
 
+    //Si data es distinto de null modifico value de input
     if (datosPerfil !== null ){
 
         nombre.value = datosPerfil.nombre; 
@@ -43,6 +48,7 @@ function getData(){
     
 }
 
+//Obtengo ubicación de imagen
 function getImage (){
     
         if (localStorage.getItem("imgUser") === null){
@@ -51,15 +57,20 @@ function getImage (){
 
 }
 
+//Funcion mostrar img HTML
 function setImage(){
+
+    //Creo elemento HTML img
     var imgUser = document.createElement("img");
         imgUser.setAttribute("src",localStorage.getItem("imgUser"));
         imgUser.setAttribute('width', 150);
         imgUser.setAttribute('height', 150);
 
+    //Muestro imagen en html
     img.appendChild(imgUser);
 }
 
+//Evento cargar nueva imagen
 document.getElementById("imgChange").addEventListener("change", function(){
 
     const reader = new FileReader();
@@ -70,6 +81,7 @@ document.getElementById("imgChange").addEventListener("change", function(){
         setImage();
     })
 
+    //Muestro imagen seleccionada
     reader.readAsDataURL(this.files[0]);
 
 })
