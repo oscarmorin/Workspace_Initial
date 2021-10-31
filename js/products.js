@@ -50,21 +50,20 @@ function showProductsList (){
 
                 //creo html con los datos obtenidos del array
                 htmlContentToAppend += `
+                <div class="col-md-4 mb-5" >
                     <a href="product-info.html" class="list-group-item list-group-item-action">
-                            <div class="row">
-                                <div class="col-3">
                                     <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
-                                </div>
-                            <div class="col">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h4 class="mb-1">`+ products.name +`</h4>
-                                    <small class="text-muted">` + products.soldCount + ` artículos</small>
-                                </div>
-                                <p class="mb-1">` + products.description + `</p>
-                                <p class="mb-1">` + products.cost + " " +  products.currency + `</p>
+                                
+                            <div class="card-body">
+                                    <h4 class="card-text mb-1">`+ products.name +`</h4>
+                                    <small class="card-text mb-1">` + products.soldCount + ` artículos</small>
+                                
+                                <p class="card-text mb-1">` + products.description + `</p>
+                                <p class="card-text mb-1">` + products.cost + " " +  products.currency + `</p>
                             </div>
-                        </div>
+                        
                     </a>
+                    </div>
                 `
             }
 
@@ -168,21 +167,21 @@ function search(){
         if (name.indexOf(texto) !== -1){
             
             container.innerHTML += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+            <div class="col-md-4" >
+                <a href="product-info.html" class="list-group-item list-group-item-action">
+            
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                        
+                        <div class="card-body">
+                            <h4 class="card-text mb-1">`+ product.name +`</h4>
+                            <small class="card-text">` + product.soldCount + ` artículos</small>
+                        
+                            <p class="card-text mb-1">` + product.description + `</p>
+                            <p class="card-text mb-1">` + product.cost + " " +  product.currency + `</p>
                         </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">` + product.soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <p class="mb-1">` + product.cost + " " +  product.currency + `</p>
-                    </div>
-                </div>
-            </a>
+                
+                </a>
+            </div>
         `
            
         } 
