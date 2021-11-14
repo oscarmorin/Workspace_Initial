@@ -57,6 +57,7 @@ function showArticles(){
     });
 }
 
+//Mostrar carrito
 function showCart (array){
 
         productCart += `
@@ -83,6 +84,7 @@ function showCart (array){
 
 }
 
+//Calcular precio total
 function showTotalPrice(){
     
     numbers();
@@ -173,6 +175,7 @@ const btnAction = e => {
      shipping ();
 }
 
+//Evento vacair carrito
 const btnVaciar = document.getElementById('vaciar-carrito');
 btnVaciar.addEventListener('click',() =>{
     items.innerHTML = '';
@@ -182,8 +185,8 @@ btnVaciar.addEventListener('click',() =>{
     document.getElementById('total').textContent = '0';
 });
 
+//Metodo de pago
 function mPayment (value){
-
 
     if ( value === 'tdc'){
 
@@ -217,6 +220,7 @@ function mPayment (value){
 
 }
 
+//Funcion para carcular el envio
 function shipping (){
     //obtengo los input con el nombre 
     var myRadio = $("input[name=flexRadioDefault]");
@@ -249,6 +253,7 @@ function shipping (){
     }
 }
 
+//Funcion para Form metodo de envio
 function formShipping (number){
 
     //Si selecciono retiro en tienda no muestro form
@@ -288,6 +293,7 @@ function formShipping (number){
     document.getElementById('formulario').innerHTML = htmlContentToAppend;
 }
 
+//Funcion para validar y ejecutar compra de articulos
 function validate(){
     let direccion = document.getElementById('direccion');
     if (direccion){
@@ -323,9 +329,7 @@ function validate(){
       
       setTimeout(() => {
 
-        $(".alert").alert('close');
-        
-       
+        $(".alert").alert('close');  
           
       }, 3000);   
 
@@ -346,6 +350,7 @@ function validate(){
     }
 }
 
+//Validar metodo de pago para mostrar luego el boton finalizar compra
 function validatePayment (){
 
     let nombreTDC = document.getElementById('nombreTDC');
@@ -416,7 +421,6 @@ function validatePayment (){
         }
 
 }
-
 
 //Funcion que permite calcular el total si elimino algun producto
 function numbers(){
