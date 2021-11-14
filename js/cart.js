@@ -405,7 +405,15 @@ function validatePayment (){
 
             if (nombreTFC.value === '' || numeroTFC.value === ''){
                 alert('Complete campos para transferencia');
-            }   
+            } else {
+                document.getElementById('buttons').innerHTML +=
+                `
+                <button type="button" class="btn btn-danger m-3" onclick="validate();">
+                Completar compra
+                </button>
+              `
+              document.getElementById('alert').innerHTML = '';
+            }
 
             if(nombreTFC.value === ''){
                 nombreTFC.style.borderColor = 'red';
