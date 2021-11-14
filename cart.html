@@ -52,90 +52,128 @@
       </div>
     </div>
   </nav>
-  <div class="container" >
-  <div id ="articles" class="row justify-content-sm-around p-2" style=" width: 100%;" >
-    
-  </div>
-  </div>
-  <div id="hola" class="p-3">
-    <div class="form-check p-3">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault0" value="0" onchange="envio();" checked >
-      <label class="form-check-label" for="flexRadioDefault0">
-        Retiro en tienda
-      </label>
-    </div>
-    <div class="form-check p-3">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="15" onchange="envio();">
-      <label class="form-check-label" for="flexRadioDefault1">
-        Premium 2 a 5 días (15%)
-      </label>
-    </div>
-    <div class="form-check p-3">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="7" onchange="envio();">
-      <label class="form-check-label" for="flexRadioDefault2">
-        Express 5 a 8 días (7%)
-      </label>
-    </div>
-    <div class="form-check p-3">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="5" onchange="envio();">
-      <label class="form-check-label" for="flexRadioDefault2">
-        Standard 12 a 15 días (5%)
-      </label>
-    </div>
-
-    <form style="width: 30%;">
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Ingrese nombre">
-      </div>
-      <div class="form-group">
-        <label for="direccion">Dirección</label>
-        <input type="text" class="form-control" id="direccion" placeholder="Ingrese dirección">
-      </div>
-      <div class="form-group">
-        <label for="telefono">Número de contacto</label>
-        <input type="text" class="form-control" id="numero" placeholder="Ingrese numero de contacto">
-      </div>
+  <div class="container mt-4">
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Imagen</th>
+          <th scope="col">Item</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Acción</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody id="items" >   
         
-    </form>
-    
-  </div>
-  <div class="container p-5">
-  
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Item</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Acción</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody id="items" >   
-    
-  </tbody>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>Envio</td>
-    <td id="envio">0</td>
-  </tr>
+      </tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="font-weight-bold">Envio</td>
+        <td id="envio">0</td>
+      </tr>
+          
+        <div id="footer">
+          <th></th>
+        <th scope="row" >Total productos</th>
+        <td id="tProducts"></td>
+        <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                Eliminar todo
+            </button>
+        </td>
+        <td class="font-weight-bold">$ <span id="total"></span></td>
+        </div>
+      
+      </table>
+        
+      </div>
+
+      <div class="row" id="container">
+
+        <div id="hola" class="card col-md-5 p-5 ml-5">
+          <div class="card-body">
+          <div class="form-check p-3">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="rTienda" value="0" onchange="shipping();" checked >
+            <label class="form-check-label" for="rTienda">
+              Retiro en tienda
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="premium" value="15" onchange="shipping();">
+            <label class="form-check-label" for="premium">
+              Premium 2 a 5 días (15%)
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="express" value="7" onchange="shipping();">
+            <label class="form-check-label" for="express">
+              Express 5 a 8 días (7%)
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="standard" value="5" onchange="shipping();">
+            <label class="form-check-label" for="standard">
+              Standard 12 a 15 días (5%)
+            </label>
+          </div>
+      
+        </div>
+        </div>
+
+        <div id="formulario" class="d-none" ></div>
+
+        </div>
+      
+      
+      </div>
+
   
 
-    <div id="footer">
-      <th scope="row" >Total productos</th>
-    <td id="tProducts"></td>
-    <td>
-        <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-            vaciar todo
+  <!-- Button trigger modal -->
+<div id="alert" class="m-4">
+  <p class="text-danger">
+    Para completar la compra debes seleccionar un método de pago...
+  </p>
+</div>
+<div id="buttons">
+  <button type="button" class="mPayment btn btn-danger m-3" data-toggle="modal" data-target="#exampleModal">
+    Seleccionar método de pago
+  </button>
+  <button type="button" class="btn btn-danger m-3 " data-toggle="modal" onclick="showArticles();">
+    Mostrar carrito nuevamente
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-    </td>
-    <td class="font-weight-bold">$ <span id="total"></span></td>
+      </div>
+      <div class="modal-body">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button id="tdc" type="button" class="btn btn-secondary m-2" onclick="mPayment('tdc');">Tarjeta de crédito</button>
+          <button id="tfc" type="button" class="btn btn-secondary m-2" onclick="mPayment('tfc');">Transferencia</button>
+        </div>
+        <div id="mPayment">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="validatePayment();">Save changes</button>
+      </div>
     </div>
-  
-  </table>
-    
   </div>
+</div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

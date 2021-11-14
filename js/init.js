@@ -6,6 +6,8 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+
+const btnSwitch = document.querySelector('#switch');
 let cerrar = document.getElementById('cerrar');
 
 var showSpinner = function(){
@@ -72,6 +74,16 @@ function showUser(){
       } else {
   window.location.href = "index.html"
       } 
+}
+
+//evento modo dark
+if(btnSwitch){
+  btnSwitch.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark');
+    btnSwitch.classList.toggle('active');
+  
+  });
 }
 
 
